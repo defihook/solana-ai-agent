@@ -1,22 +1,8 @@
-# Elyx (Enhance your Solana Trading)   
+# Mooncity (Enhance your Solana Trading)   
 
-> Elyx is an AI-powered platform for the Solana ecosystem that seamlessly integrates intelligent agents for automated trading, portfolio management, and DeFi operations. Built with Next.js, TypeScript, and cutting-edge AI technology.
+> Mooncity is an AI-powered platform for the Solana ecosystem that seamlessly integrates intelligent agents for automated trading, portfolio management, and DeFi operations. Built with Next.js, TypeScript, and cutting-edge AI technology.
 
 Topics: solana, artificial-intelligence, defi, web3, nextjs, typescript, trading-bot, portfolio-management, blockchain
-
-Elyx is a cutting-edge **open-source** platform that seamlessly integrates artificial intelligence with blockchain technology. Built specifically for the [Solana](https://solana.com/) ecosystem, Elyx revolutionizes how users interact with DeFi protocols, NFTs, and blockchain services.
-
-[![GitHub stars](https://img.shields.io/github/stars/Elyxapp/Elyx-app?style=flat-square)](https://github.com/Elyxapp/Elyx-app/stargazers)
-[![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)](https://github.com/Elyxapp/Elyx-app/blob/main/LICENSE)
-[![GitHub issues](https://img.shields.io/github/issues/Elyxapp/Elyx-app?style=flat-square)](https://github.com/Elyxapp/Elyx-app/issues)
-[![GitHub pull requests](https://img.shields.io/github/issues-pr/Elyxapp/Elyx-app?style=flat-square)](https://github.com/Elyxapp/Elyx-app/pulls)
-[![Last commit](https://img.shields.io/github/last-commit/Elyxapp/Elyx-app?style=flat-square)](https://github.com/Elyxapp/Elyx-app/commits/main)
-[![Contributors](https://img.shields.io/github/contributors/Elyxapp/Elyx-app?style=flat-square)](https://github.com/Elyxapp/Elyx-app/graphs/contributors)
-
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)
-![Solana](https://img.shields.io/badge/Solana-14F195?style=flat-square&logo=solana&logoColor=white&color=black)
 
 
 ## Key Capabilities
@@ -154,15 +140,3 @@ Currently focused on **strengthening core systems and expanding AI capabilities*
 - ⏳ Pending
 - 📅 Scheduled
 - 💡 Planned
-
-## Join Our Community
-
-We encourage community participation! Check out [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
-
-## Report bugs using GitHub's [issue tracker](https://github.com/Elyxapp/Elyx-app/issues)
-
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](https://github.com/Elyxapp/Elyx-app/issues/new).
-
-## Social Links
-- Twitter: [@Elyx_ai](https://twitter.com/Elyx_ai)
-- Documentation: [docs.Elyx.ai](https://docs.Elyx.ai)

@@ -1,0 +1,12 @@
+.text-xl {
+  font-size: 2.25rem;
+  line-height: 1.75rem;
+}
+
+.bg-clip-text {
+  background-clip: text;
+}
+
+.to-pink-500 {
+  --tw-gradient-to: #48bfec var(--tw-gradient-to-position);
+} 

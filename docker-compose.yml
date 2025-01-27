@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+  core-db:
+    image: "postgres:15"
+    container_name: "Elyx-database"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER}"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=Elyxdb_v1
+    ports:
+      - "5433:5432"
+    volumes:
+      - "db_storage:/var/lib/postgresql/data"
+    networks:
+      - Elyx_network
+
+  web-interface:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: development
+    container_name: "Elyx-web"
+    depends_on:
+      core-db:
+        condition: service_healthy
+    expose:
+      - "3001"
+    ports:
+      - "3001:3001"
+    working_dir: /app
+    command: "sh ./scripts/start-dev.sh"
+    env_file:
+      - .env.development
+    environment:
+      - DB_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@core-db:5432/Elyxdb_v1
+      - DIRECT_DB_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@core-db:5432/Elyxdb_v1
+    volumes:
+      - .:/app
+      - deps:/app/node_modules
+      - build_cache:/app/.next
+    networks:
+      - Elyx_network
+
+  admin-panel:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+      target: development
+    container_name: "Elyx-admin"
+    depends_on:
+      core-db:
+        condition: service_healthy
+    environment:
+      - DB_URL=postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@core-db:5432/Elyxdb_v1
+    expose:
+      - "5556"
+    ports:
+      - "5556:5556"
+    working_dir: /app
+    command: "pnpm run studio"
+    volumes:
+      - .:/app
+      - deps:/app/node_modules
+      - build_cache:/app/.next
+    networks:
+      - Elyx_network
+
+networks:
+  Elyx_network:
+    driver: bridge
+
+volumes:
+  db_storage:
+  deps:
+  build_cache:

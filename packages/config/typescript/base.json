@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    "composite": false,
+    "declaration": true,
+    "declarationMap": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "inlineSources": false,
+    "isolatedModules": true,
+    "moduleResolution": "node",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "preserveWatchOutput": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/foundation/*": ["packages/foundation/*/src"],
+      "@/features/*": ["packages/features/*/src"],
+      "@/infrastructure/*": ["packages/infrastructure/*/src"],
+      "@/shared/*": ["packages/shared/*/src"],
+      "@/core/*": ["packages/core/*/src"]
+    }
+  },
+  "exclude": ["node_modules"]
+} 

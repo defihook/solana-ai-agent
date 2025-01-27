@@ -1,0 +1,48 @@
+FROM node:18-alpine AS base
+
+# Install dependencies
+FROM base AS deps
+RUN apk add --no-cache libc6-compat python3 make g++
+WORKDIR /app
+
+COPY package.json pnpm-lock.yaml ./
+RUN corepack enable pnpm && \
+    pnpm install --frozen-lockfile
+
+# Development image
+FROM base AS development
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ENV NODE_ENV=development
+ENV NEXT_TELEMETRY_DISABLED=1
+
+EXPOSE 3001
+CMD ["pnpm", "dev"]
+
+# Production build
+FROM base AS builder
+WORKDIR /app
+
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+
+ENV NEXT_TELEMETRY_DISABLED=1
+
+RUN pnpm build
+
+# Production image
+FROM base AS production
+WORKDIR /app
+
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+EXPOSE 3001
+CMD ["node", "server.js"] 
